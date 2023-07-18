@@ -8,9 +8,9 @@ import About from './components/About/About';
 import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
 import Error from './components/Error/Error';
-import imgLogin from './img/xGhostx.jpg'
+import imgLogin from './img/xGhostx_reescaled.jpg'
 import imgError from './img/Error404.jpg'
-import img from './img/794362.jpg'
+import img from './img/Sparky8571.jpg'
 
 function App() {
 
@@ -22,7 +22,6 @@ function App() {
 
    const [characters, setCharacters] = useState([]);
    const [access, setAccess] = useState(false);
-   const [backgroundImage, setBackgroundImage] = useState("");
    
    function onSearch(id) {
       axios(`https://rickandmortyapi.com/api/character/${id}`)

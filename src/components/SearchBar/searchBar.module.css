@@ -1,5 +1,5 @@
 .searchBar{
-    background: rgba(246, 217, 157, 0.8);
+    background: rgba(150, 63, 56, 0.5);
     border-radius: 30px;
     /* box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
     inset -7px -7px 10px 0px rgba(0,0,0,.1),
@@ -43,6 +43,7 @@
     border: none;
     font: bold 90% monospace;
     font-size: 20px;
+    color: wheat;
     left: 35px;
     outline: none;
     position: relative;
