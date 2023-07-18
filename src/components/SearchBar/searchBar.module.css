@@ -1,0 +1,109 @@
+.searchBar{
+    background: rgba(246, 217, 157, 0.8);
+    border-radius: 30px;
+    /* box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    inset -7px -7px 10px 0px rgba(0,0,0,.1),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+    text-shadow:  0px 0px 6px rgba(255,255,255,.3),
+                -4px -4px 6px rgba(116, 125, 136, .2); */
+    text-shadow: 2px 2px 3px rgba(255,255,255,0.5);
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    padding: 10px 20px;
+    /* width: 200px; */
+    position: inherit;
+    top: 30px;
+    right: 0px;
+    transition: 0.8s;
+    
+}
+
+.searchBar:hover > .inputBar{
+    width: 200px;
+}
+/* .searchBar:hover > .buttonAdd{
+    left: 70px;
+} */
+.searchBar:hover > .buttonRandom{
+    left: -305px;
+}
+
+.inputBar{
+    text-align: left;
+    background: transparent;
+    border: none;
+    font: bold 90% monospace;
+    font-size: 20px;
+    left: 35px;
+    outline: none;
+    position: relative;
+    transition: 0.8s;
+    width: 32px;
+}
+
+/* @keyframes hoverShake {
+    0% {transform: skew(0deg,0deg);}
+    25% {transform: skew(5deg, 5deg);}
+    75% {transform: skew(-5deg, -5deg);}
+    100% {transform: skew(0deg,0deg);}
+}
+
+.searchBar:hover{
+    animation: hoverShake 0.15s linear 3;
+} */
+
+.buttonAdd{
+    background: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 30px;
+    color: rgb(245, 222, 179);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 70px;
+    font: bold 90% monospace;
+    font-size: 16px;
+    width: 80px;
+    height: 50px;
+    /* padding: 5px 10px; */
+    position: relative;
+    transition: 0.8s;
+    
+    &:hover{
+        background-color: rgba(0, 0, 0, 1);
+        cursor: pointer;
+    }
+}
+
+.buttonRandom{
+    background: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 30px;
+    color: rgb(245, 222, 179);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 200px;
+    width: 50px;
+    height: 50px;
+    font: bold 90% monospace;
+    font-size: 12px;
+    padding: 5px 10px;
+    left: -137px;
+    position: relative;
+    transition: 0.8s;
+
+    &:hover{
+        background-color: rgba(0, 0, 0, 1);
+        cursor: pointer;
+    }
+}

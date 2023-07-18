@@ -1,0 +1,75 @@
+.listItem {
+    background: none;
+    background-color: rgb(245, 222, 179, 0.8);
+    border-color: rgba(0, 125, 125, 0.8);
+    border-radius: 10%;
+    border-style: solid;
+    border-width: 8px;
+    display: inline-table;
+    height: 405px;
+    margin: 10px;
+    padding: initial;
+    position: relative;
+    width: 300px;
+}
+
+.listItem img{
+    border-radius: 30px 30px 0px 0px;
+    height: 300px;
+    position: relative;
+    top: -2px;
+    width: 300px;
+}
+
+.listItem h2{
+    background: none;
+    font: bold;
+    font-size: 15px;
+    position: relative;
+}
+
+.listItem button{
+    background: red;
+    border-radius: 50%;
+    color: black;
+    font-size: 8px;
+    height: 20px;
+    opacity: 80%;
+    position: absolute;
+    right: 7px;
+    text-align: center;
+    top: 7px;
+    width: 20px;
+    cursor: pointer;
+    transition: 0.8s;
+
+    &:hover{
+        width: 25px;
+        height: 25px;
+        font-size: 15px;
+    }
+}
+
+.nameDiv{
+    text-decoration: none;
+    text-align: left;
+    background: none;
+    background-color: rgba(0,0,0,0.6);
+    border: 1px;
+    border-radius: 0px 10px 0px 0px;
+    font: revert;
+    position: absolute;
+    top: 256px;
+    width: auto;
+    left: 0px;
+    /* left: 10px; */
+}
+
+.name{
+    background: none;
+    color: white;
+    font-size: 14px !important;
+    opacity: 100%;
+    padding: 0px 5px;
+
+}

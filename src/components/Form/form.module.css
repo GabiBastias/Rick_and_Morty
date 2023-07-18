@@ -1,0 +1,161 @@
+.divForm{
+    width: 500px;
+    height: 800px;
+    /* border: 1px solid #333;
+    border-style: solid;
+    border-color: black; */
+    border-radius: 40%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    top: 50px;
+    left: -300px;
+    position: relative;
+    /* background-image: url("../../img/Rick\ &\ Morty\ Logo3.png") transparent; */
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-attachment: fixed; */
+    background-size: 500px;
+    transition: ease 0.2s;
+    
+    box-shadow: 0px 5px 10px 0px rgba(254, 99, 35, 0.7);
+    &:hover{
+        background-image: url("../../img/Rick\ &\ Morty\ Logo3.png");
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px 2px rgba(254, 99, 35, 0.7);
+    }
+}
+
+.input {
+    font-family: inherit;
+	line-height:inherit;
+	color:rgba(255, 255, 255, 1);
+	position: relative;
+    text-align: left;
+    left: 5px;
+	font-size: 15px;
+	background: linear-gradient(21deg, #060223, #FE6323);
+	padding: 0px 0px 0px 10px;
+	display: inline-flex;
+    width: 230px;
+    height: 30px;
+	border-radius: 9999em;
+    margin: 5px;
+    opacity: 30%;
+    transition: 0.8s;
+    cursor: pointer;
+
+    &:hover{
+        opacity: 80%;
+        width: 300px;
+        height: 35px;
+    }
+}
+
+.label{
+	font-size: 1.5em;
+    font-family: inherit;
+	line-height:inherit;
+	color:rgb(80, 47, 46);
+	min-width:12em;
+}
+
+
+
+/* Button */
+.button {
+    min-width: 100px;
+    min-height: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: #FE6323;
+    background: linear-gradient(90deg, FE6323 0%, FE6323 100%);
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px #060223;
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+    top: 10px;
+    opacity: 30%;
+    margin: 10px
+}
+  
+.button::before {
+    content: '';
+    border-radius: 1000px;
+    min-width: calc(90px + 12px);
+    min-height: calc(30px + 12px);
+    /* border: 2px solid #060223; */
+    box-shadow: 0 0 60px #060223;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out 0s;
+}
+  
+.button:hover, .button:focus {
+    color: #313133;
+    transform: translateY(-6px);
+    opacity: 0.8;
+}
+  
+.button:hover::before, .button:focus::before {
+    opacity: 1;
+}
+  
+/* .button::after {
+    content: '';
+    width: 30px; height: 30px;
+    border-radius: 100%;
+    border: 6px solid #060223;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
+} */
+  
+.button:hover::after, .button:focus::after {
+    animation: none;
+    display: none;
+}
+  
+/* @keyframes ring {
+    0% {
+      width: 30px;
+      height: 30px;
+      opacity: 0.5;
+    }
+    100% {
+      width: 100px;
+      height: 100px;
+      opacity: 0;
+    }
+} */
+
+.spanInput {
+    animation: shine 2s forwards, blink 10s 1s infinite;
+  }
+  
+  @keyframes shine {
+    0% {
+      color: #6b1839;
+      text-shadow: none;
+    }
+    100% {
+      color: #ffe6ff;
+      text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
+        -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
+        0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+    }
+  }
