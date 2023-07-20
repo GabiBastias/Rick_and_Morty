@@ -14,7 +14,7 @@ const Card = ({id, name, status, species, gender, origin, image, onClose, remove
    const handleFavorite = () => {
       if (isFav) {
          setIsFav(false);
-         onClose(id);
+         // onClose(id);
          removeFav(id);
       } else {
          setIsFav(true);
@@ -33,6 +33,7 @@ const Card = ({id, name, status, species, gender, origin, image, onClose, remove
    
    return (
       <div className={styles.listItem}>
+         <img src={image} alt={name} />
          {
             isFav ? (
                <button onClick={handleFavorite} className={styles.favOn}>❤️</button>
@@ -40,8 +41,6 @@ const Card = ({id, name, status, species, gender, origin, image, onClose, remove
                <button onClick={handleFavorite} className={styles.favOn}>🤍</button>
             )
          }
-
-         <img src={image} alt={name} />
          <button className={styles.buttonClose} onClick={()=>{onClose(id)}}>X</button>
          <NavLink to={`/detail/${id}`} className={styles.nameDiv} >
             <h2 className={styles.name}>{name}</h2>
@@ -49,7 +48,7 @@ const Card = ({id, name, status, species, gender, origin, image, onClose, remove
          <h2>{status}</h2>
          <h2>{species}</h2>
          <h2>{gender}</h2>
-         <h2>{origin}</h2>
+         <h2>{origin.name}</h2>
       </div>
    );
 }
