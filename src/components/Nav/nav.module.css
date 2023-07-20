@@ -92,3 +92,35 @@
         opacity: 100%;
     }
 }
+
+.navLinkFavorites{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: inherit;
+    background: none;
+}
+
+.activeFavorites{
+    background: none;
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: 50%;
+    color: rgb(245, 222, 179);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 15px;
+    left: 280px;
+    font: bold 90% monospace;
+    font-size: 13px;
+    width: 80px;
+    height: 80px;
+    position: inherit;
+    opacity: 80%;
+    cursor: pointer;
+
+    &:hover{
+        opacity: 100%;
+    }
+}

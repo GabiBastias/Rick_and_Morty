@@ -11,6 +11,7 @@ import Error from './components/Error/Error';
 import imgLogin from './img/xGhostx_reescaled.jpg'
 import imgError from './img/Error404.jpg'
 import img from './img/Sparky8571.jpg'
+import Favorites from './components/Favorites/Favorites';
 
 function App() {
 
@@ -84,7 +85,7 @@ function App() {
 
    useEffect(() => {
       !access && navigate('/');
-   }, [access]);
+   }, [access, navigate]);
 
 
    //Cambio de Background
@@ -123,6 +124,10 @@ function App() {
             <Route 
                path="*" 
                element={<Error />} 
+               />
+            <Route
+               path='/favorites'
+               element={<Favorites onClose={onClose}/>}
                />
 
          </Routes>

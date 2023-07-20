@@ -48,7 +48,7 @@ export default function Form({login}){
                     <label className={styles.label}>Password: </label>
                     <input
                         className={styles.input}
-                        type="password" 
+                        type="text" 
                         name="password" 
                         value={userData.password} 
                         onChange={handleChange}

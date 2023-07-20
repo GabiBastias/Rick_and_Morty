@@ -1,6 +1,5 @@
 const emailRegex = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 const regexPassword = /^(?=.*?[a-z])(?=.*?[0-9]).{6,10}$/;
-// .{6,10}
 
 export default function validation(data) {
     

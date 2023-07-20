@@ -7,6 +7,7 @@
     /* border-color: rgba(0, 0, 0, 0.1); */
     position: relative;
     display: inline-flex;
+    flex-wrap: nowrap;
     justify-content: baseline;
     align-items: center;
     height: 700px;
@@ -38,8 +39,11 @@
     }
 }
 
-.divAbout p {
+.divP p {
     animation: lights 5s 750ms linear infinite;
+    margin: 20px;
+    display: inline-flex;
+    text-align: justify;
 }
 
 @keyframes flicker {
@@ -99,4 +103,15 @@
         -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
     }
     
+}
+
+.aboutProfile img{
+  width: 300px;
+  border-radius: 20%;
+}
+
+.divImg img{
+  display: inline-flex;
+  width: 50px;
+  cursor: pointer;
 }
