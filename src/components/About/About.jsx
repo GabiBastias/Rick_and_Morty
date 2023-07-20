@@ -13,7 +13,7 @@ export default function About (){
             <h2>About me...</h2>
             <div className={styles.divItems}>
                 <div className={styles.divP}>
-                    <p className={styles.paragraph}>Hello, my name is Federico Gabriel Bastias Cano, beginner developer, I am currently studying at Soy Henry bootcamp. I am a normal guy living in Tupungato Mendoza, province of Argentina, completely passionate about technology since I can remember. I am characterized by a responsible and dedicated behavior, when I have something in mind I persevere to achieve it and get the most out of it. My other passions are soccer (River Plate fan) and good music, nothing in particular.
+                    <p className={styles.paragraph}>Hi, my name is Federico Gabriel Bastias Cano, beginner developer, I am currently studying at Soy Henry bootcamp. I am a normal guy living in Tupungato Mendoza, province of Argentina, completely passionate about technology since I can remember. I am characterized by a responsible and dedicated behavior, when I have something in mind I persevere to achieve it and get the most out of it. My other passions are soccer (River Plate fan) and good music, nothing in particular.
     This is a project given to students to learn how APIs make requests to the server and how they send information. This project is currently in the initial period (front-end), when this progress I will show you the back-end, but for now I am sharing a photo of myself and some technologies used in the project.I invite you to send me your comments to my contact networks. Thank you very much for visiting my site :)</p>
                 </div>
                 <div className={styles.aboutProfile}>
