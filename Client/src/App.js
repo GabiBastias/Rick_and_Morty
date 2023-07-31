@@ -15,8 +15,8 @@ import Favorites from './components/Favorites/Favorites';
 
 function App() {
 
-   const email = "gabi.bastias10@gmail.com";
-   const password = "Nyme1998";
+   // const email = ;
+   // const password = ;
 
    const navigate = useNavigate();
    const {pathname} = useLocation();
@@ -27,7 +27,7 @@ function App() {
    function onSearch(id) {
       axios(`http://localhost:3001/rickandmorty/character/${id}`)
       .then(({ data }) => {
-         if (data.name) {
+         if (data.id) {
             const characterExists = characters.find((character) => character.id === data.id);
             if (!characterExists) {
                setCharacters((oldChars) => [...oldChars, data]);
@@ -37,10 +37,8 @@ function App() {
          }
       })
       .catch((error) => {
-         if (error.response && error.response.status === 404) {
+         if (error.response) {
            alert(`Oh, geez Rick, there are no characters with that ID!`);
-         } else {
-           alert('Error occurred while fetching character data.');
          }
       })
    }
@@ -48,22 +46,18 @@ function App() {
    function onRandom(id) {
       axios(`http://localhost:3001/rickandmorty/character/${id}`)
       .then(({ data }) => {
-         if (data.name) {
+         if (data.id) {
             const characterExists = characters.find((character) => character.id === data.id);
             if (!characterExists) {
                setCharacters((oldChars) => [...oldChars, data]);
             } else {
-               alert(`Don't add repeating characters. That's not Canon!`);
+               alert(`Don't add repeating characters. Berrrp that's not Canon!`);
             }
-         } else {
-            alert(`There are no characters with that ID!`);
          }
       })
       .catch((error) => {
-         if (error.response && error.response.status === 404) {
-           alert(`There are no characters with that ID!`);
-         } else {
-           alert('Error occurred while fetching character data.');
+         if (error.response) {
+           alert(`Oh, geez Rick, there are no characters with that ID!`);
          }
       })
    }
@@ -76,15 +70,19 @@ function App() {
       )
    }
 
-   function login (userData) {
-      if (userData.email === email && userData.password === password) {
-         setAccess(true);
-         navigate('/home');
-      }
+   function login(userData) {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`)
+      .then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
    }
 
    useEffect(() => {
-      !access && navigate('/');
+      if (!access) navigate('/');
    }, [access, navigate]);
 
 
@@ -103,7 +101,7 @@ function App() {
       <div className='App'>
          {
             pathname !== ("/") && <Nav onSearch={onSearch} onRandom={onRandom}/>
-         }  
+         }
          <Routes>
             <Route 
                path='/'
@@ -123,13 +121,12 @@ function App() {
                />
             <Route 
                path="*" 
-               element={<Error />} 
+               element={<Error />}
                />
             <Route
                path='/favorites'
                element={<Favorites onClose={onClose}/>}
                />
-
          </Routes>
       </div>
    );

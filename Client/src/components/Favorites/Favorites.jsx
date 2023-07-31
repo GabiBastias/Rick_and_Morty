@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 import Cards from "../Cards/Cards"
 import {useDispatch} from "react-redux";
-import { filterCards, orderCards } from "../../redux/actions";
+import { filterCards, orderCards, allCharacters } from "../../redux/actions";
 import { useState } from "react";
 import styles from "./favorites.module.css"
 
@@ -22,7 +22,7 @@ const Favorites = ({myFavorites, onClose}) => {
 
     const handleFilter = (event) => {
         if (event.target.value === "allCharacters") {
-            dispatch(orderCards("A"));
+            dispatch(allCharacters());
         } else {
             dispatch(filterCards(event.target.value));
         }
@@ -31,6 +31,9 @@ const Favorites = ({myFavorites, onClose}) => {
 
     return(
         <div className={styles.divFavorites}>
+            {
+                console.log(myFavorites)
+            }
             <h2 className={styles.favNameH2}>My Favorites</h2>
             <select className={styles.select} onChange={handleOrder}>
                 <option value="A">Ascendente</option>
