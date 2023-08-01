@@ -14,52 +14,46 @@ import img from './img/Sparky8571.jpg'
 import Favorites from './components/Favorites/Favorites';
 
 function App() {
-
-   // const email = ;
-   // const password = ;
-
    const navigate = useNavigate();
    const {pathname} = useLocation();
 
    const [characters, setCharacters] = useState([]);
    const [access, setAccess] = useState(false);
    
-   function onSearch(id) {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then(({ data }) => {
+   async function onSearch(id) {
+      try{
+         const URL = `http://localhost:3001/rickandmorty/character/${id}`
+         const { data } = await axios(URL);
          if (data.id) {
             const characterExists = characters.find((character) => character.id === data.id);
-            if (!characterExists) {
-               setCharacters((oldChars) => [...oldChars, data]);
-            } else {
+            if (characterExists) {
                alert(`Don't add repeating characters. Berrrp that's not Canon!`);
+            } else {
+               setCharacters((characters) => [...characters, data]);
             }
          }
-      })
-      .catch((error) => {
-         if (error.response) {
-           alert(`Oh, geez Rick, there are no characters with that ID!`);
-         }
-      })
+      }
+      catch(error){
+         alert(`Oh, geez Rick, there are no characters with that ID!`);
+      }
    }
 
-   function onRandom(id) {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then(({ data }) => {
+   async function onRandom(id) {
+      try{
+         const URL = `http://localhost:3001/rickandmorty/character/${id}`
+         const { data } = await axios(URL);
          if (data.id) {
             const characterExists = characters.find((character) => character.id === data.id);
-            if (!characterExists) {
-               setCharacters((oldChars) => [...oldChars, data]);
-            } else {
+            if (characterExists) {
                alert(`Don't add repeating characters. Berrrp that's not Canon!`);
+            } else {
+               setCharacters((characters) => [...characters, data]);
             }
          }
-      })
-      .catch((error) => {
-         if (error.response) {
-           alert(`Oh, geez Rick, there are no characters with that ID!`);
-         }
-      })
+      }
+      catch(error){
+         alert(`Oh, geez Rick, there are no characters with that ID!`);
+      }
    }
 
    function onClose(id) {
@@ -70,25 +64,29 @@ function App() {
       )
    }
 
-   function login(userData) {
-      const { email, password } = userData;
-      const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`)
-      .then(({ data }) => {
+   async function login(userData) {
+      try {
+         const { email, password } = userData;
+         const URL = 'http://localhost:3001/rickandmorty/login/';
+         const QUERY = `?email=${email}&password=${password}`
+         const { data } = await axios(URL + QUERY);
          const { access } = data;
          setAccess(data);
          access && navigate('/home');
-      });
+      } catch (error) {
+         alert("User unknown");
+      }
    }
 
    useEffect(() => {
-      if (!access) navigate('/');
+      if (!access) navigate('/login');
    }, [access, navigate]);
 
+   console.log(pathname);
 
    //Cambio de Background
    useEffect(()=>{
-      if(pathname === "/"){
+      if(pathname === "/login"){
          document.body.style.backgroundImage = `url('${imgLogin}')`;
       }else if(pathname === "*"){
          document.body.style.backgroundImage = `url('${imgError}')`;
@@ -100,11 +98,11 @@ function App() {
    return (
       <div className='App'>
          {
-            pathname !== ("/") && <Nav onSearch={onSearch} onRandom={onRandom}/>
+            pathname !== ("/login") && <Nav onSearch={onSearch} onRandom={onRandom}/>
          }
          <Routes>
             <Route 
-               path='/'
+               path='/login'
                element={<Form login={login}/>}
                />
             <Route
@@ -119,13 +117,13 @@ function App() {
                path='/detail/:id'
                element={<Detail />}
                />
-            <Route 
-               path="*" 
-               element={<Error />}
-               />
             <Route
                path='/favorites'
                element={<Favorites onClose={onClose}/>}
+               />
+            <Route 
+               path="*" 
+               element={<Error />}
                />
          </Routes>
       </div>

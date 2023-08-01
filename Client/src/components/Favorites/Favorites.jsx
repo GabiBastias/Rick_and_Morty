@@ -31,9 +31,6 @@ const Favorites = ({myFavorites, onClose}) => {
 
     return(
         <div className={styles.divFavorites}>
-            {
-                console.log(myFavorites)
-            }
             <h2 className={styles.favNameH2}>My Favorites</h2>
             <select className={styles.select} onChange={handleOrder}>
                 <option value="A">Ascendente</option>

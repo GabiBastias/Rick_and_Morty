@@ -1,5 +1,5 @@
 import styles from "./card.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 import { addFav, removeFav } from "../../redux/actions"; 
 import { useState, useEffect } from "react";
@@ -9,12 +9,12 @@ const Card = ({id, name, status, species, gender, origin, image, onClose, remove
    
    const [isFav, setIsFav] = useState(false);
 
-   // const {pathname} = useLocation();
+   const {pathname} = useLocation();
+   console.log(pathname);
 
    const handleFavorite = () => {
       if (isFav) {
          setIsFav(false);
-         // onClose(id);
          removeFav(id);
       } else {
          setIsFav(true);
@@ -35,13 +35,16 @@ const Card = ({id, name, status, species, gender, origin, image, onClose, remove
       <div className={styles.listItem}>
          <img src={image} alt={name} />
          {
-            isFav ? (
-               <button onClick={handleFavorite} className={styles.favOn}>❤️</button>
-            ) : (
-               <button onClick={handleFavorite} className={styles.favOn}>🤍</button>
-            )
+            isFav ? 
+            (<button onClick={handleFavorite} className={styles.favOn}>❤️</button>) 
+            : 
+            (<button onClick={handleFavorite} className={styles.favOn}>🤍</button>)
          }
-         <button className={styles.buttonClose} onClick={()=>{onClose(id)}}>X</button>
+         {
+            pathname !== "/favorites" ?
+            <button className={styles.buttonClose} onClick={()=>{onClose(id)}}>X</button>
+            : null
+         }
          <NavLink to={`/detail/${id}`} className={styles.nameDiv} >
             <h2 className={styles.name}>{name}</h2>
          </NavLink>

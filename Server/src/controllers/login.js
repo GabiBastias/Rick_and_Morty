@@ -7,7 +7,7 @@ function login(req, res) {
     if (verifiedUser) {
         return res.status(200).json({access: true});
     } else {
-        return res.status(204).json({access: false});
+        return res.status(404).json({access: false});
     }
 }
 

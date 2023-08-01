@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styles from "./searchBar.module.css"
-// import { NavLink } from "react-router-dom";
 
 export default function SearchBar(props) {
    const [id, setId] = useState("");
@@ -28,7 +27,6 @@ export default function SearchBar(props) {
             onChange={handleChange}
             onKeyDown={handleEnter}
             placeholder=""
-            //Conectamos el estado local
             value={id}
          />
          <button className={styles.buttonAdd} onClick={()=>{onSearch(id); setId("");}}>Search</button>
