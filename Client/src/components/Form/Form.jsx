@@ -3,7 +3,6 @@ import { useState } from "react";
 import validation from "./validation"
 
 export default function Form({login}){
-
     const [userData, setUserData] = useState({
         email: '',
         password: ''
@@ -25,7 +24,6 @@ export default function Form({login}){
         setUserData({email: "", password: ""});
         login(userData);
     }
-
 
     return(
         <div className={styles.divForm}>
@@ -60,7 +58,6 @@ export default function Form({login}){
                                 <span className={styles.spanInput}>{errors.password}</span>
                             ) : ("")
                         }
-
                 </div>
                 <button type="submit" className={styles.button}>Submit</button>
             </form>

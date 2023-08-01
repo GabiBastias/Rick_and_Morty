@@ -38,24 +38,6 @@ function App() {
       }
    }
 
-   async function onRandom(id) {
-      try{
-         const URL = `http://localhost:3001/rickandmorty/character/${id}`
-         const { data } = await axios(URL);
-         if (data.id) {
-            const characterExists = characters.find((character) => character.id === data.id);
-            if (characterExists) {
-               alert(`Don't add repeating characters. Berrrp that's not Canon!`);
-            } else {
-               setCharacters((characters) => [...characters, data]);
-            }
-         }
-      }
-      catch(error){
-         alert(`Oh, geez Rick, there are no characters with that ID!`);
-      }
-   }
-
    function onClose(id) {
       setCharacters(
          characters.filter((character)=>{
@@ -98,7 +80,7 @@ function App() {
    return (
       <div className='App'>
          {
-            pathname !== ("/login") && <Nav onSearch={onSearch} onRandom={onRandom}/>
+            pathname !== ("/login") && <Nav onSearch={onSearch}/>
          }
          <Routes>
             <Route 

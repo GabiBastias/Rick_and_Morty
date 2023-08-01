@@ -18,7 +18,6 @@ export default function SearchBar(props) {
    }
 
    const {onSearch} = props;
-   const {onRandom} = props;
    
    return (
       <div className={styles.searchBar}>
@@ -30,7 +29,7 @@ export default function SearchBar(props) {
             value={id}
          />
          <button className={styles.buttonAdd} onClick={()=>{onSearch(id); setId("");}}>Search</button>
-         <button className={styles.buttonRandom} onClick={()=>onRandom(randomNumber)}>Random</button>
+         <button className={styles.buttonRandom} onClick={()=>onSearch(randomNumber)}>Random</button>
       </div>
    );
 }

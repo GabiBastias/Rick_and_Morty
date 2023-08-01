@@ -28,7 +28,6 @@ const Favorites = ({myFavorites, onClose}) => {
         }
     }
 
-
     return(
         <div className={styles.divFavorites}>
             <h2 className={styles.favNameH2}>My Favorites</h2>

@@ -5,7 +5,6 @@ import logo from "../../img/Rick & Morty Logo1.png"
 
 export default function Nav(props){
     const {onSearch} = props;
-    const {onRandom} = props;
     return <div className={styles.divNav}>
         <NavLink to="/home" className={styles.navLinkImg}>
             <img src={logo} alt="" className={styles.logoImg} />
@@ -20,6 +19,6 @@ export default function Nav(props){
             <button className={styles.activeFavorites}>Favorites</button>
         </NavLink>
 
-        <SearchBar className={styles.searchBar} onSearch={onSearch} onRandom={onRandom}/>
+        <SearchBar className={styles.searchBar} onSearch={onSearch}/>
     </div>
 }
