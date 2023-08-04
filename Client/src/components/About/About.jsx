@@ -4,7 +4,7 @@ import html5 from "../../img/html-5.png"
 import css3 from "../../img/css-3.png"
 import nodejs from "../../img/nodejs.png"
 import redux from "../../img/icons8-react-js-500.png"
-import aboutImg from "../../img/AboutIMG.jpg"
+import aboutImg from "../../img/aboutImg.jpeg"
 
 export default function About (){
 
@@ -31,19 +31,19 @@ ABYSS</a>
                 </div>
                 <div className={styles.divImg}>
                     <h3>Used technologies: </h3>
-                    <a href="https://www.flaticon.es/iconos-gratis/javascript" target="_blank" rel="noreferrer noopener">
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer noopener">
                         <img src={js} alt="JavaScript" />
                     </a>
-                    <a href="https://www.flaticon.es/iconos-gratis/html-5" target="_blank" rel="noreferrer noopener">
+                    <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank" rel="noreferrer noopener">
                         <img src={html5} alt="HTML" />
                     </a>
-                    <a href="https://www.flaticon.es/iconos-gratis/css-3" target="_blank" rel="noreferrer noopener">
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noreferrer noopener">
                         <img src={css3} alt="CSS" />
                     </a>
-                    <a href="https://www.flaticon.es/iconos-gratis/nodejs" target="_blank" rel="noreferrer noopener">
+                    <a href="https://nodejs.org/en" target="_blank" rel="noreferrer noopener">
                         <img src={nodejs} alt="NodeJS" />
                     </a>
-                    <a href="https://icons8.com/icon/8g6WJkjf0vaP/react" target="_blank" rel="noreferrer noopener">
+                    <a href="https://legacy.reactjs.org/" target="_blank" rel="noreferrer noopener">
                         <img src={redux} alt="ReactJS" />
                     </a>
                 </div>

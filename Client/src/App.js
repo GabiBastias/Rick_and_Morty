@@ -3,7 +3,7 @@ import Cards from './components/Cards/Cards.jsx';
 import Nav from './components/Nav/Nav';
 import { useState , useEffect } from 'react';
 import axios from 'axios';
-import { Routes , Route , useLocation , useNavigate } from "react-router-dom";
+import { Routes , Route , useLocation , useNavigate} from "react-router-dom";
 import About from './components/About/About';
 import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
@@ -16,6 +16,7 @@ import Favorites from './components/Favorites/Favorites';
 function App() {
    const navigate = useNavigate();
    const {pathname} = useLocation();
+
 
    const [characters, setCharacters] = useState([]);
    const [access, setAccess] = useState(false);
@@ -53,6 +54,7 @@ function App() {
          const QUERY = `?email=${email}&password=${password}`
          const { data } = await axios(URL + QUERY);
          const { access } = data;
+         localStorage.setItem('access', access);
          setAccess(data);
          access && navigate('/home');
       } catch (error) {
@@ -61,27 +63,36 @@ function App() {
    }
 
    useEffect(() => {
-      if (!access) navigate('/login');
-   }, [access, navigate]);
+      const storedAccess = localStorage.getItem('access');
+      if (storedAccess) {
+         setAccess(storedAccess === 'true');
+      } else {
+         navigate('/login');
+      }
+   }, [pathname]);
 
-   console.log(pathname);
-
+   // localStorage.clear()
+   
    //Cambio de Background
    useEffect(()=>{
       if(pathname === "/login"){
          document.body.style.backgroundImage = `url('${imgLogin}')`;
-      }else if(pathname === "*"){
-         document.body.style.backgroundImage = `url('${imgError}')`;
-      }else {
+      }else if(pathname === "/home" || 
+               pathname === "/about" || 
+               pathname.startsWith("/detail") || 
+               pathname === "/favorites" ){
          document.body.style.backgroundImage = `url('${img}')`;
+      }else {
+         document.body.style.backgroundImage = `url('${imgError}')`;
       }
    },[pathname]);
 
    return (
       <div className='App'>
          {
-            pathname !== ("/login") && <Nav onSearch={onSearch}/>
+            (pathname !== ("/login")) ? <Nav onSearch={onSearch}/> : null
          }
+         {console.log(pathname)}
          <Routes>
             <Route 
                path='/login'
