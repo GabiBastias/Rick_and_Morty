@@ -69,7 +69,7 @@ function App() {
       } else {
          navigate('/login');
       }
-   }, [pathname]);
+   }, [navigate, pathname]);
 
    // localStorage.clear()
    
