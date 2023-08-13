@@ -5,7 +5,7 @@ import { addFav, removeFav } from "../../redux/actions";
 import { useState, useEffect } from "react";
 
 
-const Card = ({id, name, status, species, gender, origin, image, onClose }) => {
+const Card = ({id, name, status, species, gender, origin, location, image, onClose }) => {
    const [isFav, setIsFav] = useState(false);
    const myFavorites = useSelector(state => state.myFavorites);
    const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const Card = ({id, name, status, species, gender, origin, image, onClose }) => {
          dispatch(removeFav(id));
       } else {
          setIsFav(true);
-         dispatch(addFav({id, name, status, species, gender, origin, image, onClose}));
+         dispatch(addFav({id, name, status, species, gender, origin, location, image, onClose}));
       }
    }
 

@@ -92,7 +92,7 @@ function App() {
          {
             (pathname !== ("/login")) ? <Nav onSearch={onSearch}/> : null
          }
-         {console.log(pathname)}
+         {/* {console.log(pathname)} */}
          <Routes>
             <Route 
                path='/login'
