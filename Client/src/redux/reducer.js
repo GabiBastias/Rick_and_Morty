@@ -26,7 +26,7 @@ const reducer = (state = initialState, action) => {
                 myFavorites: characterFiltered
             }
         case ORDER:
-            const characterOrdered = [...state.myFavorites];
+            let characterOrdered = [...state.myFavorites];
             if (action.payload === "A") {
                 characterOrdered.sort((a,b) => a.id - b.id)
             } else if (action.payload === "D"){
