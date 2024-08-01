@@ -4,8 +4,8 @@ import validation from "./validation"
 
 export default function Form({login}){
     const [userData, setUserData] = useState({
-        email: '',
-        password: ''
+        email: 'username@mail.com',
+        password: 'password12'
     });
 
     const [errors, setErrors] = useState({
