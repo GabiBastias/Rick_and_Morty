@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import axios from 'axios';
 
 // axios.defaults.baseURL = "http://localhost:3001";
-axios.defaults.baseURL = "https://rick-and-morty-qncl.onrender.com";
+axios.defaults.baseURL = "https://rick-and-morty-uy85.onrender.com";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
